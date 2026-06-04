@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0f19;
+    color: #ffffff;
+}
+
+.container {
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #00d4ff;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #141a2a;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+h2 {
+    color: #00d4ff;
+    margin-bottom: 10px;
+}
+
+.metric {
+    margin: 6px 0;
+}
+
+.bad {
+    color: red;
+}
+
+.good {
+    color: #00ff99;
+}
+
+.warn {
+    color: orange;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 6px;
+    border-bottom: 1px solid #333;
+}

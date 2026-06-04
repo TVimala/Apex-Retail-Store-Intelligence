@@ -1,0 +1,393 @@
+{
+  "stores": [
+    {
+      "store_id": "STORE_BLR_002",
+      "name": "Apex Retail Bangalore Indiranagar",
+      "city": "Bangalore",
+      "open_hours": {
+        "open": "10:00",
+        "close": "21:00",
+        "timezone": "Asia/Kolkata"
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "type": "ENTRY_EXIT",
+          "description": "Main entrance threshold camera",
+          "entry_line_y": 540
+        },
+        {
+          "camera_id": "CAM_FLOOR_01",
+          "type": "FLOOR",
+          "description": "Main floor zone coverage \u2014 wide angle"
+        },
+        {
+          "camera_id": "CAM_BILLING_01",
+          "type": "BILLING",
+          "description": "Billing counter and queue area"
+        }
+      ],
+      "zones": [
+        {
+          "zone_id": "ENTRY_LOBBY",
+          "description": "Store entrance and greeting area",
+          "polygon": [
+            [
+              0,
+              480
+            ],
+            [
+              320,
+              480
+            ],
+            [
+              320,
+              720
+            ],
+            [
+              0,
+              720
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_ENTRY_01",
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "SKINCARE",
+          "description": "Skincare and moisturiser aisle",
+          "sku_zone": "MOISTURISER",
+          "polygon": [
+            [
+              320,
+              100
+            ],
+            [
+              640,
+              100
+            ],
+            [
+              640,
+              400
+            ],
+            [
+              320,
+              400
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "HAIRCARE",
+          "description": "Hair care products aisle",
+          "sku_zone": "HAIRCARE",
+          "polygon": [
+            [
+              640,
+              100
+            ],
+            [
+              960,
+              100
+            ],
+            [
+              960,
+              400
+            ],
+            [
+              640,
+              400
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "MAKEUP",
+          "description": "Colour cosmetics and makeup",
+          "sku_zone": "MAKEUP",
+          "polygon": [
+            [
+              320,
+              400
+            ],
+            [
+              640,
+              400
+            ],
+            [
+              640,
+              600
+            ],
+            [
+              320,
+              600
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "FRAGRANCE",
+          "description": "Fragrance and perfume display",
+          "sku_zone": "FRAGRANCE",
+          "polygon": [
+            [
+              640,
+              400
+            ],
+            [
+              960,
+              400
+            ],
+            [
+              960,
+              600
+            ],
+            [
+              640,
+              600
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "BILLING",
+          "description": "Billing counter and payment area",
+          "polygon": [
+            [
+              800,
+              600
+            ],
+            [
+              1280,
+              600
+            ],
+            [
+              1280,
+              1080
+            ],
+            [
+              800,
+              1080
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_BILLING_01"
+          ]
+        },
+        {
+          "zone_id": "PURPLLE_MUM_1076_Z01",
+          "description": "Left Shelf",
+          "sku_zone": "SHELF",
+          "polygon": [
+            [
+              0,
+              100
+            ],
+            [
+              320,
+              100
+            ],
+            [
+              320,
+              400
+            ],
+            [
+              0,
+              400
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "PURPLLE_MUM_1076_Z02",
+          "description": "Center Display",
+          "sku_zone": "DISPLAY",
+          "polygon": [
+            [
+              320,
+              100
+            ],
+            [
+              640,
+              100
+            ],
+            [
+              640,
+              400
+            ],
+            [
+              320,
+              400
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "PURPLLE_MUM_1076_Z03",
+          "description": "Lipstick Aisle",
+          "sku_zone": "LIPSTICK",
+          "polygon": [
+            [
+              640,
+              100
+            ],
+            [
+              960,
+              100
+            ],
+            [
+              960,
+              400
+            ],
+            [
+              640,
+              400
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "PURPLLE_MUM_1076_Z_BILLING_01",
+          "description": "Billing Counter Queue",
+          "sku_zone": "BILLING",
+          "polygon": [
+            [
+              800,
+              600
+            ],
+            [
+              1280,
+              600
+            ],
+            [
+              1280,
+              1080
+            ],
+            [
+              800,
+              1080
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_BILLING_01"
+          ]
+        }
+      ]
+    },
+    {
+      "store_id": "STORE_MUM_001",
+      "name": "Apex Retail Mumbai Bandra",
+      "city": "Mumbai",
+      "open_hours": {
+        "open": "10:00",
+        "close": "22:00",
+        "timezone": "Asia/Kolkata"
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "type": "ENTRY_EXIT",
+          "entry_line_y": 500
+        },
+        {
+          "camera_id": "CAM_FLOOR_01",
+          "type": "FLOOR"
+        },
+        {
+          "camera_id": "CAM_BILLING_01",
+          "type": "BILLING"
+        }
+      ],
+      "zones": [
+        {
+          "zone_id": "ENTRY_LOBBY",
+          "polygon": [
+            [
+              0,
+              450
+            ],
+            [
+              300,
+              450
+            ],
+            [
+              300,
+              700
+            ],
+            [
+              0,
+              700
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_ENTRY_01"
+          ]
+        },
+        {
+          "zone_id": "SKINCARE",
+          "sku_zone": "MOISTURISER",
+          "polygon": [
+            [
+              300,
+              80
+            ],
+            [
+              600,
+              80
+            ],
+            [
+              600,
+              380
+            ],
+            [
+              300,
+              380
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_FLOOR_01"
+          ]
+        },
+        {
+          "zone_id": "BILLING",
+          "polygon": [
+            [
+              750,
+              580
+            ],
+            [
+              1200,
+              580
+            ],
+            [
+              1200,
+              1020
+            ],
+            [
+              750,
+              1020
+            ]
+          ],
+          "camera_coverage": [
+            "CAM_BILLING_01"
+          ]
+        }
+      ]
+    }
+  ]
+}

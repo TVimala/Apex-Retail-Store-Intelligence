@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+.Python
+env/
+venv/
+.venv/
+
+*.egg-info/
+dist/
+build/
+
+# ─────────────────────────────────────────
+# Environment variables
+# ─────────────────────────────────────────
+.env
+
+# ─────────────────────────────────────────
+# Database (VERY IMPORTANT for your project)
+# ─────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# ─────────────────────────────────────────
+# Logs
+# ─────────────────────────────────────────
+*.log
+
+# ─────────────────────────────────────────
+# Data outputs (your pipeline files)
+# ─────────────────────────────────────────
+data/events/*.jsonl
+data/sample_events.jsonl
+data/pos_transactions_normalised.csv
+
+# keep layouts but ignore generated outputs if any
+data/output/
+
+# ─────────────────────────────────────────
+# Video files (VERY IMPORTANT)
+# ─────────────────────────────────────────
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+data/clips/
+
+# ─────────────────────────────────────────
+# OS files
+# ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─────────────────────────────────────────
+# IDE
+# ─────────────────────────────────────────
+.vscode/
+.idea/
