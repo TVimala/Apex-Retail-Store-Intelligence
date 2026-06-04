@@ -254,21 +254,6 @@ docker compose logs -f
 docker compose down
 ```
 
-Switch to PostgreSQL by editing `docker-compose.yml`:
-```yaml
-environment:
-  - DATABASE_URL=postgresql+asyncpg://apex:apex_secret@postgres/store_intelligence
-```
-
----
-
-## Environment Variables
-
-| Variable | Default | Description |
-|---|---|---|
-| `DATABASE_URL` | `sqlite+aiosqlite:///./data/store_intelligence.db` | Database connection string |
-| `LOG_LEVEL` | `INFO` | Logging level |
-
 ---
 
 ## Running Assertions (Self-Validation)
