@@ -73,13 +73,10 @@ async def get_store_metrics(store_id: str, db: AsyncSession) -> StoreMetrics:
     abandon_visitors = abandon_q.scalar() or 0
 
     # ── 4. Purchased visitors (SAFE LOGIC) ──────────────────────────
-    # IMPORTANT: cannot exceed billing_visitors
     purchased_visitors = max(
         0,
         billing_visitors - abandon_visitors
     )
-
-    # clamp to avoid fake inflation
     purchased_visitors = min(purchased_visitors, billing_visitors)
 
     conversion_rate = safe_div(purchased_visitors, unique_visitors)

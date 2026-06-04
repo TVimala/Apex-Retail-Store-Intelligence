@@ -18,7 +18,7 @@ from app.models import HeatmapResponse, HeatmapZone
 
 logger = logging.getLogger("service.heatmap")
 
-LOW_CONFIDENCE_THRESHOLD = 20  # sessions
+LOW_CONFIDENCE_THRESHOLD = 20
 
 
 async def get_store_heatmap(store_id: str, db: AsyncSession) -> HeatmapResponse:

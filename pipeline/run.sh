@@ -1,16 +1,3 @@
-#!/usr/bin/env bash
-# run.sh — Process all CCTV clips and emit events to JSONL + live API
-#
-# Usage:
-#   ./pipeline/run.sh [CLIPS_DIR] [LAYOUT_JSON] [OUTPUT_DIR] [API_URL] [REPLAY_SPEED]
-#
-# Defaults:
-#   CLIPS_DIR     = ./data/clips
-#   LAYOUT_JSON   = ./data/store_layout.json
-#   OUTPUT_DIR    = ./data/events
-#   API_URL       = http://localhost:8000  (set to "" to skip live ingest)
-#   REPLAY_SPEED  = 0  (0 = max speed, 1.0 = real-time for live dashboard)
-
 set -euo pipefail
 
 CLIPS_DIR="${1:-./data/clips}"

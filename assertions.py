@@ -1,15 +1,3 @@
-"""
-assertions.py — 10 example API assertions for self-validation before submission.
-
-These are not the full scoring suite — they are the acceptance-level checks
-you can run locally to verify your API is ready.
-
-Usage:
-    # Start the API first:  docker compose up
-    # Ingest sample events: python pipeline/ingest_batch.py --file data/sample_events.jsonl
-
-    python assertions.py --api http://localhost:8000 --store STORE_BLR_002
-"""
 
 import argparse
 import json

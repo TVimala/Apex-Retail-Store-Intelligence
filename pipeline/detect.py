@@ -1,20 +1,3 @@
-"""
-detect.py — Main detection + tracking script for Apex Retail CCTV pipeline.
-
-Processes raw CCTV clips through:
-  1. YOLOv8 person detection (with confidence thresholding)
-  2. ByteTrack multi-object tracking
-  3. Re-ID via appearance + trajectory hashing
-  4. Zone classification via polygon intersection
-  5. Staff detection via colour-histogram proxy (uniform detection)
-  6. Structured event emission
-
-Usage:
-    python detect.py --clip path/to/clip.mp4 --store STORE_BLR_002 \
-                     --camera CAM_ENTRY_01 --layout store_layout.json \
-                     --output events.jsonl [--replay-speed 1.0]
-"""
-
 import argparse
 import json
 import logging
@@ -91,16 +74,6 @@ def classify_zone(foot: tuple[float, float], zones: list[dict]) -> str | None:
 
 
 def is_staff_by_colour(frame: np.ndarray, box: tuple) -> tuple[bool, float]:
-    """
-    Proxy staff detector using colour histogram.
-    Real deployment would use a fine-tuned classifier or VLM.
-    Returns (is_staff, confidence_score).
-
-    Strategy: staff uniforms at Apex Retail are typically dark navy/black.
-    We compute the HSV histogram of the torso region and compare against
-    a pre-defined staff colour profile. If no profile exists we fall back
-    to a dark-colour heuristic.
-    """
     x1, y1, x2, y2 = box
     h = y2 - y1
     # Crop torso (middle third vertically)

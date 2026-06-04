@@ -1,11 +1,3 @@
-"""
-database.py — Async SQLAlchemy setup for the Intelligence API.
-
-Uses SQLite by default (aiosqlite driver).
-Switch to PostgreSQL by setting DATABASE_URL in environment:
-    DATABASE_URL=postgresql+asyncpg://user:pass@host/dbname
-"""
-
 import logging
 import os
 
@@ -20,7 +12,6 @@ logger = logging.getLogger("db")
 # ─────────────────────────────────────────────────────────────────────────────
 _DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./data/store_intelligence.db")
 
-# For SQLite: enable WAL mode for concurrent reads + single writer
 _CONNECT_ARGS = {}
 if "sqlite" in _DATABASE_URL:
     _CONNECT_ARGS = {"check_same_thread": False}
@@ -39,12 +30,9 @@ AsyncSessionLocal = async_sessionmaker(
 )
 
 
-# ─────────────────────────────────────────────────────────────────────────────
 # Base
-# ─────────────────────────────────────────────────────────────────────────────
 class Base(DeclarativeBase):
     pass
-
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Dependency

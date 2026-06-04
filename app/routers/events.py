@@ -77,7 +77,6 @@ async def ingest_events(
     duplicate = len(valid_rows) - len(new_rows)
 
     if new_rows:
-        # Bulk insert — SQLite uses INSERT OR IGNORE for idempotency
         try:
             stmt = sqlite_insert(EventORM).values(new_rows).prefix_with("OR IGNORE")
             await db.execute(stmt)
@@ -107,5 +106,5 @@ async def ingest_events(
         accepted=accepted,
         rejected=rejected,
         duplicate=duplicate,
-        errors=errors[:20],   # cap error list size
+        errors=errors[:20],
     )

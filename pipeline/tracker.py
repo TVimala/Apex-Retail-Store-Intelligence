@@ -1,25 +1,3 @@
-"""
-tracker.py — Multi-object tracking and Re-ID for Apex Retail pipeline.
-
-Two components:
-  1. ByteTrackWrapper — wraps ByteTrack (or falls back to IoU-based tracker)
-     for stable per-frame track IDs.
-  2. ReIDRegistry — converts unstable track IDs into persistent visitor_ids,
-     handles re-entry detection, and prevents double-counting across cameras.
-
-Re-ID Strategy
---------------
-We use a trajectory-based appearance hash approach:
-  - Primary: bounding box foot-point trajectory (normalised)
-  - Secondary: torso colour histogram (L2 distance)
-  - Tertiary: temporal proximity (if a track reappears < COOLDOWN seconds
-    after an EXIT near the same spatial region, it is a RE-ENTRY)
-
-This avoids the need for a heavy OSNet/torchreid model while still handling
-the realistic edge cases in the footage.  A production deployment would swap
-in a proper Re-ID model; the architecture is the same.
-"""
-
 import hashlib
 import logging
 import time
@@ -61,11 +39,6 @@ class ExitRecord:
 # ─────────────────────────────────────────────────────────────────────────────
 
 class ByteTrackWrapper:
-    """
-    Thin wrapper around ByteTrack from the supervision library.
-    Falls back to a simple IoU-based tracker if supervision is unavailable.
-    """
-
     def __init__(self, fps: float = 15.0):
         self.fps = fps
         self._tracker = None
@@ -125,11 +98,6 @@ class ByteTrackWrapper:
 
 
 class _IoUTracker:
-    """
-    Minimal IoU-based tracker as fallback.
-    Assigns persistent IDs by greedy IoU matching.
-    """
-
     def __init__(self, iou_threshold: float = 0.3, max_age: int = 30):
         self._next_id = 1
         self._tracks: dict[int, dict] = {}  # id → {box, age}
@@ -208,14 +176,6 @@ def _iou(a: tuple, b: tuple) -> float:
 # ─────────────────────────────────────────────────────────────────────────────
 
 class ReIDRegistry:
-    """
-    Maps ByteTrack track_ids (unstable across track breaks) to persistent
-    visitor_ids.  Detects re-entry by spatial + temporal proximity.
-
-    visitor_id format: VIS_<6 hex chars> derived from a hash of the
-    (store_id, camera_id, first_foot, first_ts) tuple.
-    """
-
     SPATIAL_REENTRY_RADIUS_PX = 120  # foot must be within this radius
     COLOUR_SIMILARITY_THRESHOLD = 0.65
 

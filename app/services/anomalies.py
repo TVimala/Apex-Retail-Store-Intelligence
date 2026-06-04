@@ -59,7 +59,6 @@ async def get_store_anomalies(store_id: str, db: AsyncSession) -> AnomaliesRespo
     day_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
     anomalies: list[Anomaly] = []
 
-    # ── 1. Queue spike ───────────────────────────────────────────────────────
     qd_q = await db.execute(
         select(EventORM.queue_depth).where(
             EventORM.store_id == store_id,
@@ -82,8 +81,6 @@ async def get_store_anomalies(store_id: str, db: AsyncSession) -> AnomaliesRespo
             threshold=float(QUEUE_SPIKE_THRESHOLD),
         ))
 
-    # ── 2. Conversion drop vs 7-day rolling average ──────────────────────────
-    # Today's conversion
     entry_today = await db.execute(
         select(func.count(distinct(EventORM.visitor_id))).where(
             EventORM.store_id == store_id,
@@ -214,7 +211,6 @@ async def get_store_anomalies(store_id: str, db: AsyncSession) -> AnomaliesRespo
     )
     recent_entries = active_visitors_q.scalar() or 0
 
-    # Also check for recent EXIT — if entries == 0 and it's during open hours
     if recent_entries == 0 and total_today > 0:
         # Store has had visitors today but none recently — might be a feed issue
         anomalies.append(_make_anomaly(

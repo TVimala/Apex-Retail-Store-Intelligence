@@ -1,11 +1,3 @@
-"""
-ingest_batch.py — Batch-ingest all JSONL event files into the Intelligence API.
-
-Usage:
-    python ingest_batch.py --dir ./data/events --api http://localhost:8000
-    python ingest_batch.py --file events.jsonl --api http://localhost:8000
-"""
-
 import argparse
 import json
 import logging

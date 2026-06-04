@@ -1,27 +1,3 @@
-"""
-normalise_pos.py — Converts the real Purplle POS transactions CSV into the
-challenge's expected format.
-
-Real POS schema:
-  order_id, order_date, order_time, store_id, product_id, brand_name, total_amount
-
-  - order_date: DD-MM-YYYY
-  - store_id: ST1008 style
-  - total_amount: per product line (rows for same order share order_id)
-
-Challenge schema:
-  store_id, transaction_id, timestamp, basket_value_inr
-
-  - store_id: STORE_MUM_001 style
-  - timestamp: ISO-8601 UTC
-  - basket_value_inr: sum of all product lines for the order
-
-Usage:
-    python pipeline/normalise_pos.py \\
-        --input  data/pos_transactions.csv \\
-        --output data/pos_transactions_normalised.csv
-"""
-
 import argparse
 import csv
 import logging

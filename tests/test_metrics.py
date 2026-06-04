@@ -1,15 +1,3 @@
-# PROMPT: "Write pytest tests for a FastAPI store analytics API.
-# Endpoints: POST /events/ingest, GET /stores/{id}/metrics, /funnel, /heatmap, /anomalies, /health.
-# Key requirements: ingest idempotency (same payload twice = same result), staff exclusion
-# from customer metrics, zero-purchase store handling (not null/crash), re-entry funnel accuracy,
-# empty store anomaly, stale feed detection. Use async test client with SQLite in-memory DB."
-#
-# CHANGES MADE:
-# - Fixed async session dependency override (AI used sync override initially)
-# - Added teardown to reset DB between tests (AI missed this, caused test bleeding)
-# - Made staff exclusion test assert conversion_rate specifically, not just unique_visitors
-# - Replaced AI's httpx.AsyncClient with FastAPI's AsyncClient from httpx
-# - Added explicit check that zero-purchase store returns conversion_rate=0.0, not null
 
 import asyncio
 import json

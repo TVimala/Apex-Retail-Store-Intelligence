@@ -1,14 +1,3 @@
-"""
-emit.py — Event schema definition and emitter for the Apex Retail pipeline.
-
-Handles:
-  - Event construction with UUID generation
-  - ISO-8601 UTC timestamp formatting
-  - JSONL file output (buffered, flushed on close)
-  - Optional live HTTP POST to the Intelligence API
-  - Session sequence tracking per visitor
-"""
-
 import json
 import logging
 import uuid

@@ -1,18 +1,3 @@
-# PROMPT: "Write comprehensive pytest tests for a retail CCTV analytics pipeline.
-# The pipeline emits structured events (ENTRY, EXIT, ZONE_ENTER, ZONE_EXIT, ZONE_DWELL,
-# BILLING_QUEUE_JOIN, BILLING_QUEUE_ABANDON, REENTRY). Test edge cases:
-# group entry (3 people simultaneously), re-entry detection, staff exclusion,
-# empty store periods, confidence thresholding, and schema compliance.
-# Include fixtures with synthetic bounding box data."
-#
-# CHANGES MADE:
-# - Added deterministic visitor_id fixture instead of relying on real timestamps
-# - Extended group entry test to assert exactly N events, not just > 0
-# - Added test for confidence pass-through on low-conf detections (don't suppress)
-# - Added timestamp format validation (strict ISO-8601 UTC Z suffix)
-# - Replaced AI-suggested monkeypatching of cv2 with a proper fixture approach
-# - Added REENTRY cooldown boundary test (just inside / just outside window)
-
 import json
 import time
 import uuid

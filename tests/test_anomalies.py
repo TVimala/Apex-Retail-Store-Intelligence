@@ -1,16 +1,3 @@
-# PROMPT: "Write pytest tests for anomaly detection in a retail store analytics API.
-# Cover: queue spike threshold (warn vs critical), conversion drop vs 7-day avg,
-# dead zone detection (30 min no activity), empty store period, all-staff clip
-# (no customers → no false anomalies). Include edge cases: exactly at threshold,
-# one below threshold, anomaly severity escalation."
-#
-# CHANGES MADE:
-# - AI suggested mocking datetime.now() — replaced with actual DB timestamp manipulation
-#   since that's what the anomaly service reads, not wall clock
-# - Added test for CRITICAL severity (1.5x spike threshold) which AI omitted
-# - Fixed dead zone test: AI assumed all zones from store_layout, but code reads
-#   from actual ZONE_ENTER events — adjusted test accordingly
-# - Added assertion that suggested_action is a non-empty string
 
 import uuid
 from datetime import datetime, timezone, timedelta
