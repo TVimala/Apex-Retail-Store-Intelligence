@@ -42,7 +42,7 @@ data/sample_events.jsonl
 data/pos_transactions_normalised.csv
 data/pos_transactions.csv
 data/raw_sample_events.jsonl
-data/store_layout.csv
+data/store_layout.json
 
 # keep layouts but ignore generated outputs if any
 data/output/
